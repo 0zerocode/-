@@ -1,0 +1,30 @@
+def findhw():
+	hw = []
+	for i in range(10000,1000000):
+		a = list(str(i))
+		if len(a) % 2 == 1 :
+			if (a[0] == a[4]) and (a[1] == a[3]):
+				hw.append(i)
+		else :
+			if (a[0] == a[5]) and (a[1] == a[4])	and (a[2] == a[3]):
+				hw.append(i)
+	return hw
+			
+def spechw(n , hw):
+	hwn = []
+	for j in hw :
+		b = list(str(j))
+		sum = 0
+		for k in b :
+			sum += int(k)
+		if sum == n :
+			hwn.append(j)
+			
+	return sorted(hwn)
+
+if __name__=='__main__' :
+	n = input('please type a number between 5 and 54: ')
+	hw = findhw()
+	result = spechw(n , hw)
+	for i in result :
+		print i
